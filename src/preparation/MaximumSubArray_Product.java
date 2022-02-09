@@ -3,14 +3,13 @@ package preparation;
 public class MaximumSubArray_Product {
 
     public static void main(String[] args) {
-        int []input = {-3, -40, -2, 0, -5, -1};
+        int[] input = {-3, -40, -2, 0, -5, -1};
         int result = findMaxProduct(input);
         System.out.println("Result : " + result);
     }
 
 
     private static int findMaxProduct(int[] arr) {
-        int n = arr.length;
         // max positive product
         // ending at the current
         // position
@@ -31,26 +30,23 @@ public class MaximumSubArray_Product {
                         ending with arr[i]
         min_ending_here is always 1 or some negative product
                         ending with arr[i] */
-        for (int i = 0; i < n; i++)
-        {
+        for (int j : arr) {
             /* If this element is positive, update
                max_ending_here. Update min_ending_here only
                if min_ending_here is negative */
-            if (arr[i] > 0)
-            {
-                max_ending_here = max_ending_here * arr[i];
+            if (j > 0) {
+                max_ending_here = max_ending_here * j;
                 min_ending_here
-                        = Math.min(min_ending_here * arr[i], 1);
+                        = Math.min(min_ending_here * j, 1);
                 flag = 1;
             }
 
             /* If this element is 0, then the maximum
             product cannot end here, make both
-            max_ending_here and min_ending _here 0
+            max_ending_here and min_ending _here 1
             Assumption: Output is always greater than or
             equal to 1. */
-            else if (arr[i] == 0)
-            {
+            else if (j == 0) {
                 max_ending_here = 1;
                 min_ending_here = 1;
             }
@@ -67,8 +63,8 @@ public class MaximumSubArray_Product {
             else {
                 int temp = max_ending_here;
                 max_ending_here
-                        = Math.max(min_ending_here * arr[i], 1);
-                min_ending_here = temp * arr[i];
+                        = Math.max(min_ending_here * j, 1);
+                min_ending_here = temp * j;
             }
 
             // update max_so_far, if needed
