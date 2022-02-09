@@ -9,10 +9,8 @@ public class NextGreaterNumber {
         int num1 = 1321;
         int num = 982349865;
 
-        int[] input = new int[10];
-
         //input = new int[]{9, 8, 2, 3, 4, 9, 8, 6, 5};
-        input = new int[]{1, 3, 1, 2};
+        int[] input = new int[]{1, 3, 1, 2};
 
         int i;
 
